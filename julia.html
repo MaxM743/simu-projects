@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"> 
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src='js/p5.min.js'></script>
+    <script src='js/loadfont.js'></script>
+    <title>Julia's Set</title>
+
+</head>
+<body>
+    <header>
+    </header>
+    <nav>
+        <ul>
+          <li><div id="navbar-button" onclick="buttonClicked('index.html')">Main</div></li>
+          <li><div id="navbar-button" onclick="buttonClicked('projects.html')">Projects</div></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="paragraph">
+            <h1 class="main-title">Julia's Set</h1>
+            <h2>Historical context</h2>
+
+            <h2>Formal definition</h2>
+            Julia studied rational polynomial expressions such as $f(z)=\sum_{n=0}^Na_nz^n$ but here we will limit the discuss to those of the form : 
+            $$f(z)=z^2+c$$
+            where $z,c\in \mathbb{C}$.
+            The Julia's set denoted $\mathcal{J}$ is represented by all the value $z$ for which the following sequence converges :
+            $$z_{n+1}=z_n^2+c$$
+           
+            <h2>Computation</h2>
+            In order to be able to visualize Julia's set, we have to compute the previous expression to see if it converges. To do so we will assume
+            that if the module of the sequence is greater than 2 then it diverges. Thus we will divide the screen into a grid of coordinates and calculate
+            the sequence to a certain $N$, check when it diverges at each iteration and color the pixel based on this.
+        </div>
+
+            
+        <div class="script-widgets">
+            <div class="buttons-container">
+                <div class="widget-button" id="button1">$(-0.79, -0.15, 100)$</div>
+                <div class="widget-button" id="button2">(-0.162, 1.04, 25)</div>
+                <div class="widget-button" id="button3">(0.33, 0.008, 20)</div>
+                <div class="widget-button" id="button4">(-1.476, 0, 10)</div>
+            </div>
+        </div>
+        
+        <div class="sketch-container" id="sketch1"></div>
+        <div class="paragraph">
+            We can observe a large panel of different structures depending on the starting point. The following animation used the mouse to determine
+            the constant $c$ and compute the algorithm :
+        </div>
+        <div class="sketch-container" id="sketch2"></div>
+        <script src="js/julia.js"></script>
+
+   
+        
+    </main> 
+
+
+    <footer>
+        <p>&copy; 2023. No rights reserved.</p>
+    </footer>
+</body>
+</html>
